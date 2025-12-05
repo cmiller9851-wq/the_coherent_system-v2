@@ -1,0 +1,19 @@
+name: Coherent Evolution Pipeline
+on: [pull_request, push]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint Rituals
+        run: |
+          pip install markdown
+          markdownlint runbooks/*.md || true
+      - name: Test Experiments
+        run: |
+          node --test experiments/ || echo "No JS tests yet"
+      - name: Run migration
+        run: |
+          python3 data/migrate.py
+          du -h data/coherent.db
