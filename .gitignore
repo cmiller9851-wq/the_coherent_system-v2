@@ -1,31 +1,36 @@
 # Node.js dependencies
 node_modules/
 
-# Logs
+# Build output / compiled files
+dist/
+build/
+
+# Log files
 logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 
-# Build outputs
-dist/
-build/
-
-# Environment files
+# Environment / secret files
 .env
 .env.local
 .env.*.local
 
-# IDE / editor folders
+# Editor / IDE folders
 .vscode/
 .idea/
-*.sublime-workspace
 *.sublime-project
+*.sublime-workspace
 
-# OS files
+# OS‑specific files
 .DS_Store
 Thumbs.db
 
-# Swap / temp files
+# Temporary files / swap
 *.swp
 *.swo
+
+# Coverage, test output, debug
+coverage/
+*.coverage/
+.nyc_output/
