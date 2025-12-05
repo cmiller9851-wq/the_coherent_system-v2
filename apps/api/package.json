@@ -1,5 +1,3 @@
-mkdir -p apps/api
-cat > apps/api/package.json <<'EOF'
 {
   "name": "the-coherent-system-api",
   "version": "0.1.0",
@@ -33,4 +31,3 @@ cat > apps/api/package.json <<'EOF'
     "jest": "^29.0.0"
   }
 }
-EOF
