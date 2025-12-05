@@ -1,0 +1,21 @@
+name: Weekly Experiment Update
+
+on:
+  schedule:
+    - cron: '0 12 * * 1'  # every Monday at noon UTC
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Pull latest blog insights
+        run: |
+          curl -s https://swervincurvin.blogspot.com/feeds/posts/default?alt=rss > experiments/blog_insights.xml
+      - name: Commit changes
+        run: |
+          git config --global user.name "Cory Miller"
+          git config --global user.email "YOUR_EMAIL@example.com"
+          git add experiments/blog_insights.xml
+          git commit -m "Auto-update weekly blog insights"
+          git push
